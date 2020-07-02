@@ -8,23 +8,9 @@
 -- Version de PHP :  7.1.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+SET time_zone = "-04:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Base de données :  `inventory_dtb`
---
-
--- --------------------------------------------------------
-
---
--- Structure de la table `logs`
---
 
 CREATE TABLE `logs` (
   `id` int(11) NOT NULL,
@@ -34,34 +20,16 @@ CREATE TABLE `logs` (
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Contenu de la table `logs`
---
 
 INSERT INTO `logs` (`id`, `name`, `type`, `picture`, `date`) VALUES
-(17, 'Joseph Quercia', 'edit', 'La nuit étoilée', '2017-03-12 09:42:25'),
-(23, 'Joseph Quercia', 'edit', 'La nuit étoilée', '2017-03-12 09:42:32'),
-(25, 'Joseph Quercia', 'add', 'Le Fils de l\'homme', '2017-03-12 09:42:38'),
-(27, 'Joseph Quercia', 'delete', 'Le Fils de l\'homme', '2017-03-12 09:42:45'),
-(52, 'Joseph Quercia', 'edit', 'Nighthawks', '2017-03-12 08:43:02'),
-(54, 'Joseph Quercia', 'add_user', 'Léna Mari', '2017-03-12 09:43:59'),
-(55, 'Léna Mari', 'edit', 'La nuit étoilée', '2017-03-12 09:44:37'),
-(56, 'Léna Mari', 'add', 'Le Baiser', '2017-03-12 09:46:47'),
-(57, 'Léna Mari', 'edit', 'La nuit étoilée', '2017-03-12 11:19:28'),
-(58, 'Léna Mari', 'edit', 'La nuit étoilée', '2017-03-12 11:39:56'),
-(59, 'Léna Mari', 'edit', 'La nuit étoilée', '2017-03-12 11:49:41'),
-(60, 'Léna Mari', 'edit', 'La nuit étoilée', '2017-03-12 11:51:07'),
-(61, 'Léna Mari', 'edit', 'La nuit étoilée', '2017-03-12 11:56:45'),
-(62, 'Léna Mari', 'edit', 'La nuit étoilée', '2017-03-12 11:56:50'),
-(63, 'Joseph Quercia', 'add', 'La naissance de Vénus', '2017-03-12 13:52:40'),
-(64, 'Joseph Quercia', 'edit', 'Impression, soleil levant', '2017-03-12 13:52:56'),
-(65, 'Léna Mari', 'add_user', 'Antoine Mouës', '2017-03-12 13:54:07');
+(1, 'Joseph Quercia', 'edit', 'La nuit étoilée', '2017-03-12 09:42:25'),
+(2, 'Joseph Quercia', 'delete', 'Le Fils de l\'homme', '2017-03-12 09:42:45'),
+(3, 'Joseph Quercia', 'add_user', 'Léna Mari', '2017-03-12 09:43:59'),
+(4, 'Joseph Quercia', 'add', 'La naissance de Vénus', '2017-03-12 13:52:40'),
+(5, 'Joseph Quercia', 'edit', 'Impression, soleil levant', '2017-03-12 13:52:56'),
+(6, 'Léna Mari', 'add_user', 'Antoine Mouës', '2017-03-12 13:54:07');
 
--- --------------------------------------------------------
 
---
--- Structure de la table `products`
---
 
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
@@ -92,9 +60,7 @@ INSERT INTO `products` (`id`, `name`, `artist`, `description`, `img`, `price`, `
 
 -- --------------------------------------------------------
 
---
--- Structure de la table `users`
---
+
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
@@ -105,22 +71,13 @@ CREATE TABLE `users` (
   `contributions` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Contenu de la table `users`
---
 
 INSERT INTO `users` (`id`, `email`, `password`, `name`, `picture`, `contributions`) VALUES
 (2, 'joseph.q@me.com', '44964cbe349e8f8e112e5c9b9d3e1b5422d1e70d5fb846eaffcaa0f2d73ffd13', 'Joseph Quercia', 'server/files/joseph-quercia.jpg', 48),
-(89, 'lena.mari@gmail.com', '52c891e46fd603b4bd9f53f209d4a03a2b7a7bf54a5a5a35b30335e09842a6a6', 'Léna Mari', 'server/files/15235472_1437876129557660_305052000474605242_o.jpg', 8),
-(90, 'antoine2@moues.fr', '75735ec8785e4c5f7c8064ea2133c742b73360b39eab265de4a0a4bb639d346b', 'Antoine Mouës', 'server/files/14681655_1118594374842662_6584283876361373278_n.jpg', 0);
+(3, 'lena.mari@gmail.com', '52c891e46fd603b4bd9f53f209d4a03a2b7a7bf54a5a5a35b30335e09842a6a6', 'Léna Mari', 'server/files/15235472_1437876129557660_305052000474605242_o.jpg', 8),
+(4, 'antoine2@moues.fr', '75735ec8785e4c5f7c8064ea2133c742b73360b39eab265de4a0a4bb639d346b', 'Antoine Mouës', 'server/files/14681655_1118594374842662_6584283876361373278_n.jpg', 0);
 
---
--- Index pour les tables exportées
---
 
---
--- Index pour la table `logs`
---
 ALTER TABLE `logs`
   ADD PRIMARY KEY (`id`);
 
@@ -136,13 +93,7 @@ ALTER TABLE `products`
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
---
--- AUTO_INCREMENT pour les tables exportées
---
 
---
--- AUTO_INCREMENT pour la table `logs`
---
 ALTER TABLE `logs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 --
@@ -155,6 +106,3 @@ ALTER TABLE `products`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
